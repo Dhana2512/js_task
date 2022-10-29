@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // 1. find the product of this array [1,2,3,10]
+
+        const num = [1, 2, 3, 10]
+        const product = num.reduce((a, b) => a * b)
+        console.log('product of array :', product);
+
+        // 2.  write a function to check wheather the given value exist in the target nested object or not 
+
+        //         const obj = {
+        //             data: {
+        //                 info: {
+        //                     stuff: {
+        //                         thing: {
+        //                             moreStuff: {
+        //                                 magicNumber: 44,
+        //                                 something: 'somevalue'
+        //                             }
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+
+        // 3.write a function to flatten the nested array shown below (Don't use array.flat method)
+
+        const b = [1, 2, 3, [4, 5, 6, [7, 8, 9], 0, [1, 2, [3]]]];
+        //  i)
+        const flat = b.reduce((acc, val) => acc.concat(val), []);
+        console.log('flatten array:', flat);
+
+        // ii)
+        function flattened() {
+            console.log([].concat(...b))
+        }
+        flattened();
+
+        // 4. write a function that will take array as input and return duplicate values
+
+
+        const c = ['nodejs', 'javascript', 'mongodb', 'sql', 'javascript', 'webstorage', 'html', 'sql'];
+
+        const duplicates = list => list.filter((item, index) => list.indexOf(item) !== index)
+        const duplicateElements = duplicates(c);
+        console.log('duplicate elements:', duplicateElements);
+
+        // 5.write a function to find uniq values from the array  
+
+        var fruits = ["apple", "mango", "apple", "orange", "mango", "mango"];
+
+        // i)
+        function uniq(fruits) {
+            return fruits.filter((item, index) => fruits.indexOf(item) === index);
+        }
+        console.log('uniqValues:', uniq(fruits));
+
+        // ii)
+        const uniqValues = new Set(fruits);
+        console.log(uniqValues);
+
+        // 6. write a function to find number of duplicates values from the array 
+        const numbers = [1, 2, 3, 4, 5, 1, 2, 3, 3, 1, 5];
+
+        const count = {};
+
+        numbers.forEach(element => {
+            count[element] = (count[element] || 0) + 1;
+        });
+        console.log(count);
+
+    </script>
+</body>
+
+</html>
